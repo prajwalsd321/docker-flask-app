@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docker-flask2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: docker-flask2
+  template:
+    metadata:
+      labels:
+        app: docker-flask2
+    spec:
+      containers:
+      - name: docker-flask2
+        image: prajwalsd/docker-flask2-app:latest
+        ports:
+        - containerPort: 5001
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: docker-flask2-service
+spec:
+  type: NodePort
+  selector:
+    app: docker-flask2
+  ports:
+  - port: 5001
+    targetPort: 5001
+    nodePort: 32001
