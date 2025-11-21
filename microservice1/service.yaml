@@ -7,6 +7,6 @@ spec:
     app: microservice1
   ports:
     - protocol: TCP
-      port: 80       # Service port (browser will use)
+      port: 80       # Service port exposed to Ingress
       targetPort: 5000 # Container port where Flask runs
   type: ClusterIP
