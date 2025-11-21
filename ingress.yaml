@@ -1,18 +1,25 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: microservice1-ingress
+  name: microservices-ingress
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: microservice1.local   # or your domain / IP
+    - host: 127.0.0.1
       http:
         paths:
-          - path: /prajwal
+          - path: /
             pathType: Prefix
             backend:
               service:
                 name: microservice1-svc
+                port:
+                  number: 80
+          - path: /prajwal
+            pathType: Prefix
+            backend:
+              service:
+                name: microservice2-svc
                 port:
                   number: 80
