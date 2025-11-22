@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: docker-flask2-service   # must match Ingress backend
+spec:
+  selector:
+    app: docker-flask2          # must match pod label
+  ports:
+    - protocol: TCP
+      port: 80                  # service port
+      targetPort: 5001          # container port inside pod

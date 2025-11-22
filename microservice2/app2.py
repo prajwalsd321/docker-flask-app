@@ -1,10 +1,14 @@
 from flask import Flask
-
 app = Flask(__name__)
 
-@app.route("/prajwal")
-def hello():
-    return "Hello Prajwal, this is your SECOND microservice!"
+@app.route('/')
+def home():
+    return "Welcome to Docker Flask App 2!"
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5001)
+@app.route('/prajwal')
+def prajwal():
+    return "Hello from /prajwal route!"
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5001)
+

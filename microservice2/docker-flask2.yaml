@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: microservice2
-        image: <your-dockerhub-username>/microservice2:latest
+        image: prajwalsd/microservice2:latest
         ports:
         - containerPort: 5001
 ---
